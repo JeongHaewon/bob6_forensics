@@ -16,4 +16,5 @@ for line in lines:
   
     file = open("file.p","wb")
     file.write(WHOIS_JSON)
-    file.close()
+    
+file.close()
