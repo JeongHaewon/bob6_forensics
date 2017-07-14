@@ -1,22 +1,19 @@
-"""Getting whois data from website"""
+import json
 
-import argparse # add args parsing
-import json # json
 import pythonwhois
 
-whois_data = pythonwhois.net.get_whois_raw( 'http://google.com', with_server_list=False)
-print (whois_data)
+fout = open('url', 'rt')
+lines = fout.readlines()
+fout.close()
 
-parser = argparse.ArgumentParser(description='Hi')
-parser .add_argument('--Domain', action='store', dtest='Domain')
+for line in lines:
+    print line
 
-whois_output = parser parse_args[whois_data] #read domains from a file
-print (whois_output)
+    WHOIS_DATA = pythonwhois.net.get_whois_raw(line, with_server_list=False)
+    print WHOIS_DATA
 
-
-whois_json = json.dumps(whois_data) #parse whois output (json)
-whois_data2 = json.loads(whois_json)
-
-fileobj = open("whois_output", 'wt') #store output as a file
-fileobj.write(whois_data2)
-fileobj.close()
+    WHOIS_JSON = json.JSONEncoder().encode({line:WHOIS_DATA})
+  
+    file = open("file.p","wb")
+    file.write(WHOIS_JSON)
+    file.close()
