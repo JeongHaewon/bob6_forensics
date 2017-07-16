@@ -1,8 +1,9 @@
 import json
-
+import sys
 import pythonwhois
 
-fout = open('url', 'rt')
+argument = sys.argv [1]
+fout = open(argument, 'rt')
 lines = fout.readlines()
 fout.close()
 
