@@ -6,6 +6,8 @@ fout = open('url', 'rt')
 lines = fout.readlines()
 fout.close()
 
+file = open("file.p","wb")
+
 for line in lines:
     print line
 
@@ -13,8 +15,7 @@ for line in lines:
     print WHOIS_DATA
 
     WHOIS_JSON = json.JSONEncoder().encode({line:WHOIS_DATA})
-  
-    file = open("file.p","wb")
-    file.write(WHOIS_JSON)
+ 
+    file = json.dump(WHOIS_JSON)
     
 file.close()
