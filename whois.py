@@ -17,6 +17,6 @@ for line in lines:
 
     WHOIS_JSON = json.JSONEncoder().encode({line:WHOIS_DATA})
  
-    json.dumps(WHOIS_JSON)
+    file.write(json.dumps(WHOIS_JSON))
     
 file.close()
